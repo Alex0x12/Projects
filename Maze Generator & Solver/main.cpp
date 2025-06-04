@@ -68,19 +68,15 @@ Cell** CreateMaze() {
 	Cell* CurrentCell = &Labyrinth[rand() % m_width][rand() % m_height];
 	CurrentCell->Visited = true;
 
-	// Ñòåê äëÿ õðàíåíèÿ ïóòè
-	// Âåêòîð äëÿ õðàíåíèÿ âîçìîæíûõ íàïðàâëåíèé
 	stack <Cell> path;
 	vector<Cell*> direction;
 
-	path.push(*CurrentCell); // Äîáàâëÿåì â ïóòü ïåðâóþ êëåòêó
+	path.push(*CurrentCell); 
 
 	Cell _cell;
 	while (!path.empty()) {
 
-		_cell = path.top(); // Ïåðåìåííàÿ, ÷åðåç êîòîðóþ ìû îáðàùàåìñÿ ê âåðøèíå ñòåêà - ïî ñóòè, òî÷êå ïðîäîëæåíèÿ ïóòè
-
-		// Ïðîâåðÿåì âîçìîæíîñòü äâèæåíèÿ ïî ÷åòûðåì íàïðàâëåíèÿì
+		_cell = path.top(); 
 
 		if (_cell.x > 0 && !Labyrinth[_cell.x - 1][_cell.y].Visited)
 			direction.push_back(&Labyrinth[_cell.x - 1][_cell.y]);
@@ -94,17 +90,13 @@ Cell** CreateMaze() {
 		if (_cell.y < m_height - 1 && !Labyrinth[_cell.x][_cell.y + 1].Visited)
 			direction.push_back(&Labyrinth[_cell.x][_cell.y + 1]);
 
-		//Åñëè åñòü äîñòóïíûå íàïðàâëåíèÿ, ñëó÷àéíî âûáèðàåì ëþáîå è äîáàâëÿåì åãî â ñòåê ïóòè.
-		// Åñëè äîñòóïíûõ íàïðàâëåíèé â äàííîé êëåòêå íåò - óäàëÿåì âåðøèíó ñòåêà, òî åñòü îòêàòûâàåìñÿ äî ïðåäûäóùåãî øàãà ïóòè.
-
 		if (!direction.empty()) {
 			CurrentCell = direction[rand() % direction.size()];
 			CurrentCell->Visited = true;
 
 			path.push(*CurrentCell);
 			direction.clear();
-
-			//Äàëåå îáîçíà÷àåì ïðîõîäû ìåæäó êëåòêàìè
+			
 			if (_cell.x != CurrentCell->x) {
 				if (_cell.x - CurrentCell->x > 0) {
 					Labyrinth[_cell.x][_cell.y].Left = Open;
