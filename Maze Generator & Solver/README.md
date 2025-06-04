@@ -8,6 +8,7 @@
 
 	sfml>=3.0.0, g++
 
+## Compile
 
 ```bash
 g++ main.cpp -o maze -lsfml-graphics -lsfml-window -lsfml-system
