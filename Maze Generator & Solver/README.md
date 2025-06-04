@@ -13,4 +13,4 @@
 ```bash
 g++ main.cpp -o maze -lsfml-graphics -lsfml-window -lsfml-system
 ``` 
-
+![hippo](./mazegenerator.gif)
