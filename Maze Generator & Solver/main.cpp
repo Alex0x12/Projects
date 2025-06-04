@@ -10,10 +10,9 @@
 using namespace std;
 using namespace sf;
 
-
+// Specify this parameters as you wish, you'd better get it from argv[]
 const int w_width = 500;
 const int w_height = 500;
-
 const int m_width = 50;
 const int m_height = 50;
 
