@@ -1,2 +1,2 @@
 ## Dependencies
-PyQt5 sqlite 
+PyQt5, sqlite 
